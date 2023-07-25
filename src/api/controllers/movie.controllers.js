@@ -36,6 +36,7 @@ const putMovie = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+
 const deleteMovie = async (req, res) => {
   try {
     const {id} = req.params;

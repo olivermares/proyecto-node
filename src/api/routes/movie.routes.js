@@ -1,12 +1,11 @@
 const express = require("express")
 const {getMovies,postMovie,putMovie,deleteMovie} = require("../controllers/movie.controllers")
 
-const comidaRoutes = express.Router();
+const movieRoutes = express.Router();
 
-comidaRoutes.get("/", getMovies);
-comidaRoutes.post("/", postMovie);
-comidaRoutes.put("/:id", putMovie);
-comidaRoutes.delete("/:id", deleteMovie);
+movieRoutes.get("/", getMovies);
+movieRoutes.post("/", postMovie);
+movieRoutes.put("/:id", putMovie);
+movieRoutes.delete("/:id", deleteMovie);
 
-
-module.exports= comidaRoutes;
+module.exports= movieRoutes;

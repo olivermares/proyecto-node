@@ -9,9 +9,7 @@ const arrayMovies = require("./movie.seed");
 
 const DB_URL= process.env.DB_URL;
 
-seed(arrayUser,User);
-seed(arrayMovies,Movie);
-
+seed(arrayUser, User);
 
 //Funcion privada  
 function seed(array, Model){

@@ -1,7 +1,7 @@
-/*const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const User = require("../api/models/user.models");
-*/
+
 
 const arrayUsers = [    
     {
@@ -31,8 +31,6 @@ const arrayUsers = [
 
 module.exports= arrayUsers;
 
-
-/*
 const DB_URL= process.env.DB_URL;
 
 mongoose.connect(DB_URL)
@@ -40,7 +38,7 @@ mongoose.connect(DB_URL)
     const allUser = await User.find();
     if (allUser.length > 0) {
         await User.collection.drop();
-        console.log("Usuarios borraddos");
+        console.log("Usuarios borrados");
     }
 })
 .catch((error)=> console.log("Error al borrar los usuarios",error))
@@ -51,4 +49,3 @@ mongoose.connect(DB_URL)
 })
 .catch((error) => console.log("Error al insertar los usuarios", error))
 .finally(()=> mongoose.disconnect());
-*/

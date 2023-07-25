@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "seed": "node ./src/seeds/all.seed.js"
+    "seed": "node ./src/seeds/seed.seed.js"
   },
   "author": "Oliver Marès",
   "license": "ISC",

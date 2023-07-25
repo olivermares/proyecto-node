@@ -1,13 +1,6 @@
 const User = require("../api/models/user.models");
 const {verifySign} = require("../utils/jwt");
 
-/*
-const pruebaMiddleware = (req,res,next) => {
-    console.log("esto es mi función middleware");
-    next(); //funcion next da paso a lo que haya a continuación
-}
-*/
-
 const isAuth = async( req,res,next) =>{
     try {
         const authorization = req.headers.authorization
