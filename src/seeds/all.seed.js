@@ -9,42 +9,25 @@ const arrayMovies = require("./movie.seed");
 
 const DB_URL= process.env.DB_URL;
 
-seed(arrayUser, User);
-
 //Funcion privada  
-function seed(array, Model){
+function seed(array, Model){   
     mongoose.connect(DB_URL)
     .then(async()=> {
         const all = await Model.find();
         if (all.length > 0) {
             await Model.collection.drop();
-            console.log(`${Model} borrada`);
+            console.log(`Borrada correctamente`);
         }
     })
-    .catch((error)=> console.log(`Error al borrar ${Model}`,error))
+    .catch((error)=> console.log(`Error al borrar`,error))
     .then(async ()=> {
         const allMap = array.map((element) => new Model(element));
         await Model.insertMany(allMap);
-        console.log(`Insert ${Model} correctamente`);
+        console.log(`Insert correctamente`);
     })
-    .catch((error) => console.log(`Insert ${Model} error`, error))
+    .catch((error) => console.log(`Insert error`, error))
     .finally(()=> mongoose.disconnect());
 }
 
-
-/*
-.then(async()=> {
-    const allMovies = await Movie.find();
-    if (allMovies.length > 0) {
-        await Movie.collection.drop();
-        console.log("Pelicula borrada");
-    }
-})
-.catch((error)=> console.log("Error al borrar las Pelicuas",error))
-.then(async ()=> {
-    const moviesMap = arrayMovies.map((movie) => new Movie(movie));
-    await Movie.insertMany(moviesMap);
-    console.log("Peliculas insertadas correctamente");
-})
-.catch((error) => console.log("error insertando las Peliculas", error))
-*/
+seed(arrayMovies, Movie);
+seed(arrayUser, User);

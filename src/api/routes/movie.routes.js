@@ -1,5 +1,6 @@
 const express = require("express")
 const {getMovies,postMovie,putMovie,deleteMovie} = require("../controllers/movie.controllers")
+const {isAuth, isAdmin} =require("../../middlewares/auth");
 
 const movieRoutes = express.Router();
 

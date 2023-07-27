@@ -2,7 +2,7 @@ const Movie = require("../models/movie.models");
 
 const getMovies = async (req, res) => {
   try {
-    const allMovies = await Movie.find();
+    const allMovies = await Movie.find().populate("director").populate("cast");
     return res.status(200).json(allMovies);
   } catch (error) {
     return res.status(500).json(error);
@@ -23,9 +23,10 @@ const postMovie = async (req, res) => {
 const putMovie = async (req, res) => {
   try {
     const { id } = req.params;
-    const putPelicua = new Movie(req.body);
-    putPelicua._id = id;
-    const updatedMovie = await Movie.findByIdAndUpdate(id, putMovie, {
+    const putPelicula = new Movie(req.body);
+    console.log(putPelicula);
+    putPelicula._id = id;
+    const updatedMovie = await Movie.findByIdAndUpdate(id, putPelicula, {
       new: true,
     });
     if (!updatedMovie) {

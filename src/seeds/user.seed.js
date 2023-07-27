@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+/*const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
-const User = require("../api/models/user.models");
+const User = require("../api/models/user.models");*/
 
 
 const arrayUsers = [    
@@ -30,7 +30,7 @@ const arrayUsers = [
 ];
 
 module.exports= arrayUsers;
-
+/*
 const DB_URL= process.env.DB_URL;
 
 mongoose.connect(DB_URL)
@@ -48,4 +48,4 @@ mongoose.connect(DB_URL)
     console.log("Usuarios insertados correctamente");
 })
 .catch((error) => console.log("Error al insertar los usuarios", error))
-.finally(()=> mongoose.disconnect());
+.finally(()=> mongoose.disconnect());*/

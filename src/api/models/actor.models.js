@@ -6,7 +6,6 @@ const actorSchema = new Schema(
         name:{type:String, required:true},
         country:{type:String, required:true},
         img:{type:String, required:false}
-
       },{
         timestamps:true
       }

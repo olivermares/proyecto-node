@@ -20,8 +20,6 @@ const register = async (req, res ) => {
         const createdUser = await newUser.save();
 
         return res.status(201).json(createdUser);
-
-
     } catch (error) {
         return res.status(500).json(error)
     }
@@ -30,13 +28,14 @@ const register = async (req, res ) => {
 const login = async (req, res) => {
     try {
         const userInfo = await User.findOne({email:req.body.email})
-        // console.log(userInfo);
+
         if (!userInfo) {
             return res.status(404).json({message:"email no encontrado"})
         }
         if (!bcrypt.compareSync(req.body.password,userInfo.password)) {
             return res.status(404).json({message:"password incorrecto"})
         }
+
        const token = generateSign(userInfo._id,userInfo.email);
 
        return res.status(200).json({user:userInfo,token:token})
