@@ -1,8 +1,3 @@
-/*const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
-const User = require("../api/models/user.models");*/
-
-
 const arrayUsers = [    
     {
         "name": "marta",

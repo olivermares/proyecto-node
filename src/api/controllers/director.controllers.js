@@ -12,8 +12,8 @@ const getDirectors = async (req, res) => {
 const postDirector = async (req, res) => {
   try {
     const newDirector = new Director(req.body);
+    newDirector = req.file.path;
     const createdDirector = await newDirector.save();
-
     return res.status(201).json(createdDirector);
   } catch (error) {
     return res.status(500).json(error);
@@ -25,11 +25,12 @@ const putDirector = async (req, res) => {
     const { id } = req.params;
     const putDirector = new Director(req.body);
     putDirector._id = id;
-    const updatedDirector = await Movie.findByIdAndUpdate(id, putDirector, {
+    putDirector.img= req.file.path;
+    const updatedDirector = await Director.findByIdAndUpdate(id, putDirector, {
       new: true,
     });
     if (!updatedDirector) {
-      return res.status(404).json({ message: "no existe este id de actor" });
+      return res.status(404).json({ message: "no existe este id de director" });
     }
     return res.status(200).json(updatedDirector);
   } catch (error) {

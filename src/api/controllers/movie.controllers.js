@@ -12,6 +12,7 @@ const getMovies = async (req, res) => {
 const postMovie = async (req, res) => {
   try {
     const newMovie = new Movie(req.body);
+    newMovie.img= req.file.path
     const createdMovie = await newMovie.save();
 
     return res.status(201).json(createdMovie);
@@ -23,10 +24,10 @@ const postMovie = async (req, res) => {
 const putMovie = async (req, res) => {
   try {
     const { id } = req.params;
-    const putPelicula = new Movie(req.body);
-    console.log(putPelicula);
-    putPelicula._id = id;
-    const updatedMovie = await Movie.findByIdAndUpdate(id, putPelicula, {
+    const putMovie = new Movie(req.body);
+    putMovie._id = id;
+    putMovie.img = req.file.path;
+    const updatedMovie = await Movie.findByIdAndUpdate(id, putMovie, {
       new: true,
     });
     if (!updatedMovie) {

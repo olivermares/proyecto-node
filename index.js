@@ -6,14 +6,14 @@ const userRoutes = require("./src/api/routes/user.routes");
 const movieRoutes = require("./src/api/routes/movie.routes");
 const actorRoutes = require("./src/api/routes/actor.routes");
 const directorRoutes = require("./src/api/routes/director.routes");
-//const cloudinary = require("cloudinary");
+const cloudinary = require("cloudinary").v2;
 
-/*cloudinary.config({
-  cloud_name: process.env.CLOUDINRY_NAME,
-  api_key: process.env.CLOUDINRY_KEY,
-  api_secret: process.env.CLOUDINRY_SECRET,
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
   secure: true,
-});*/
+});
 
 const PORT = process.env.PORT;
 const app = express();
